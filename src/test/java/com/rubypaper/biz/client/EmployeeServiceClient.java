@@ -1,6 +1,7 @@
 package com.rubypaper.biz.client;
 
 import com.rubypaper.biz.domain.Employee;
+import com.rubypaper.biz.domain.EmployeeId;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -21,25 +22,10 @@ public class EmployeeServiceClient {
         EntityTransaction tx = em.getTransaction();
 
         try{
-            // 직원 엔티티 생성
-            Employee employee = new Employee();
-            employee.setId(2L);
-            employee.setName("둘리");
-            employee.setMailId("gurum");
-            employee.setStartDate(new Date());
-            employee.setTitle("과장");
-            employee.setDeptName("총무부");
-            employee.setSalary(2500.00);
-            employee.setCommissionPct(12.50);
+            EmployeeId empId = new EmployeeId(1L, "guest123");
+            Employee findEmployee = em.find(Employee.class, empId);
+            System.out.println("검색된 직원 정보 : " + findEmployee.toString());
 
-            // 트랜잭션 시작
-            tx.begin();
-
-            // 직원 등록 처리
-            em.persist(employee);
-
-            // 트랜잭션 종료(COMMIT)
-            tx.commit();
         }catch (Exception e){
             e.printStackTrace();
 
