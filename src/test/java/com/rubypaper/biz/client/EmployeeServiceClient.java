@@ -1,13 +1,11 @@
 package com.rubypaper.biz.client;
 
 import com.rubypaper.biz.domain.Employee;
-import com.rubypaper.biz.domain.EmployeeId;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
-import java.util.Date;
 
 public class EmployeeServiceClient {
     public static void main(String[] args) {
@@ -25,7 +23,7 @@ public class EmployeeServiceClient {
             // 엔티티 생성 및 초기화
             Employee employee = new Employee();
             // employee.setId(1L);
-            employee.setName("둘리");
+            employee.setName("도우너");
 
             // 회원 등록 요청
             tx.begin();

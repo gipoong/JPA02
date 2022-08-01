@@ -7,15 +7,17 @@ import javax.persistence.*;
 @Data
 @Entity
 @Table(name = "S_EMP")
-@SequenceGenerator(name = "S_EMP_GENERATOR",
-                    sequenceName = "S_EMP_SEQUENCE",
-                    initialValue = 1,
-                    allocationSize = 1)
+@TableGenerator(name = "SEQ_GENERATOR",
+                table = "SHOPPING_SEQUENCE",
+                pkColumnName = "SEQ_NAME",
+                pkColumnValue = "EMP_SEQ",
+                valueColumnName = "NEXT_VALUE",
+                allocationSize = 1)
 public class Employee {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE,
-                    generator = "S_EMP_GENERATOR")
+    @GeneratedValue(strategy = GenerationType.TABLE,
+                    generator = "SEQ_GENERATOR")
     private Long id;
 
     private String name;
