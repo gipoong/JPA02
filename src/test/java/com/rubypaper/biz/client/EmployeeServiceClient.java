@@ -23,7 +23,7 @@ public class EmployeeServiceClient {
             // 엔티티 생성 및 초기화
             Employee employee = new Employee();
             // employee.setId(1L);
-            employee.setName("도우너");
+            employee.setName("고길동");
 
             // 회원 등록 요청
             tx.begin();
