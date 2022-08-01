@@ -1,12 +1,8 @@
 package com.rubypaper.biz.domain;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Data
 @Entity
@@ -14,7 +10,8 @@ import java.util.Date;
 public class Employee {
 
     @Id
-    private EmployeeId empId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     private String name;
 }
